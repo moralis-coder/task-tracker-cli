@@ -1,6 +1,10 @@
-def cli():
-    print("Welcome to Task CLI! Use this tool to manage your tasks.")
+from . import cli
+
+
+def main():
+    args = cli.parse_args()
+    print(args)
 
 
 if __name__ == "__main__":
-    cli()
+    main()
