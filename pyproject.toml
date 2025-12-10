@@ -19,4 +19,4 @@ dependencies = []
 dynamic = ["version"]
 
 [project.scripts]
-task-cli = "task_cli.__main__:cli"
+task-cli = "task_cli.__main__:main"
