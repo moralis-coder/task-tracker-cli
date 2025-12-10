@@ -14,7 +14,7 @@ def parse_args():
 
     update_subcommand = subparser.add_parser('update', description='Update an existing task')
     update_subcommand.add_argument('task_id', type=int, help='ID of the task to update')
-    update_subcommand.add_argument('new_name', type=str, help='New name for the task')
+    update_subcommand.add_argument('task_name', type=str, help='New name for the task')
 
     delete_subcommand = subparser.add_parser('delete', description='Delete a task')
     delete_subcommand.add_argument('task_id', type=int, help='ID of the task to delete')

@@ -30,6 +30,32 @@ class Task:
             raise InvalidTaskArgument(f'Task {self} is already deleted.')
         self.deleted = True
         self.updated_at = datetime.now()
+    
+    def update(self, title):
+        if self.deleted:
+            raise InvalidTaskArgument(f'Task {self} is deleted and cannot be updated.')
+        self.title = title
+        self.updated_at = datetime.now()
+    
+    def mark_in_progress(self):
+        if self.deleted:
+            raise InvalidTaskArgument(f'Task {self} is deleted and cannot be updated.')
+        if self.status == 'in-progress':
+            raise InvalidTaskArgument(f'Task {self} is already in progress.')
+        if self.status == 'done':
+            raise InvalidTaskArgument(f'Task {self} is already done.')
+        self.status = 'in-progress'
+        self.updated_at = datetime.now()
+    
+    def mark_done(self):
+        if self.deleted:
+            raise InvalidTaskArgument(f'Task {self} is deleted and cannot be updated.')
+        if self.status == 'done':
+            raise InvalidTaskArgument(f'Task {self} is already done.')
+        if self.status == 'todo':
+            raise InvalidTaskArgument(f'Task {self} must be in progress before marking as done.')
+        self.status = 'done'
+        self.updated_at = datetime.now()
 
     def __dict__(self):
         return {
