@@ -15,3 +15,9 @@ pip install .
 ```bash
 task-cli
 ```
+
+# Background Information
+
+This a beginner project from Roadmap. It is breakable toy to practice python.
+
+[Exercise desctiption](https://roadmap.sh/projects/task-tracker)
