@@ -34,3 +34,12 @@ def mark_task_done(task_id):
     task.mark_done()
     db.save_task(task)
     print(f"Task {task} is marked as done.")
+
+
+def list_tasks(status='all'):
+    for task in db.list_tasks():
+        if task.deleted:
+            continue
+        if status != 'all' and task.status != status:
+            continue
+        print(task)

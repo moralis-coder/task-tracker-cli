@@ -39,3 +39,13 @@ def save_task(task):
     task_file = os.path.join(DB_PATH, f'{task.id}.task')
     with open(task_file, 'w') as f:
         json.dump(task.__dict__(), f)
+
+
+def list_tasks():
+    for task_id in range(1, get_next_task_id()):
+        try:
+            with open(os.path.join(DB_PATH, f'{task_id}.task'), 'r') as f:
+                data = json.load(f)
+                yield Task.from_dict(data)
+        except FileNotFoundError:
+            continue    

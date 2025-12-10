@@ -10,6 +10,7 @@ COMMANDS = {
     'update': lambda **kwargs: commands.update_task(kwargs['task_id'], kwargs['task_name']),
     'mark-in-progress': lambda **kwargs: commands.mark_task_in_progress(kwargs['task_id']),
     'mark-done': lambda **kwargs: commands.mark_task_done(kwargs['task_id']),
+    'list': lambda **kwargs: commands.list_tasks(kwargs['status']),
 }
 
 
