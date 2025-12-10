@@ -1,6 +1,14 @@
 from .task import Task
-from .db import save_task
+from . import db
+
 
 def create_task(title):
     task = Task(title=title)
-    save_task(task)
+    db.save_task(task)
+
+
+def delete_task(task_id):
+    task = db.get_task(task_id)
+    task.delete()
+    db.save_task(task)
+    print(f"Task {task} is deleted.")
